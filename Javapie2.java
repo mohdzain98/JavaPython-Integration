@@ -7,7 +7,6 @@ package javapie;
 import java.util.ArrayList;
 import java.util.List;
 import org.python.util.PythonInterpreter;
-import org.python.core.*;
 
 /**
  *
@@ -23,16 +22,8 @@ public class Javapie {
         System.out.println("running python code in java");
         List<Double> z = new ArrayList<>();
         PythonInterpreter pinj = new PythonInterpreter();
-        /*pinj.exec("""
-                  import math
-                  def sigmoid(x):
-                      return 1/(1+math.exp(-x))
-                  x=[i for i in range(-10,10)]
-                  z=[round(sigmoid(i),5) for i in range(-10,10)]
-                  print(x)
-                  print(z)
-                  """);*/
-        pinj.execfile("C:\\Netbeans\\javapie\\src\\javapie\\pmain.py");
+        
+        pinj.execfile("path\\pmain.py");
         for(int i=-10;i<=10;i++){
             System.out.print(i+" ");
         }
