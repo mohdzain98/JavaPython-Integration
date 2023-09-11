@@ -31,9 +31,18 @@ public class Javapie {
             pinj.set("arg", j);
             pinj.exec("val = sigmoid(arg)");
             Double returnVal = (Double) pinj.eval("val").__tojava__(Double.class);
-            z.add(returnVal);
+            z.add( Math.round(returnVal * 100) / 100.0);
         }
         System.out.println(z);
+        int a=2,b=4;
+        pinj.set("a", a);
+        pinj.set("b", b);
+        pinj.exec("val = add(a,b)");
+        Integer add = (Integer)pinj.eval("val").__tojava__(Integer.class);
+        pinj.exec("prod = mul(a,b)");
+        Integer mul = (Integer)pinj.eval("prod").__tojava__(Integer.class);
+        System.out.println("Addition returned by Python Code "+add);
+        System.out.println("Multiplication returned by Python code "+mul);
     }
     
 }
